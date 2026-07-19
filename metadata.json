@@ -1,0 +1,6 @@
+{
+  "name": "Pizza Website",
+  "description": "An elegant, interactive static Pizza website featuring a live order cart, gourmet menu explorer, customized pizza builder, and premium interactive layout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
