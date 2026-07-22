@@ -1,4 +1,4 @@
-name: Build, Publish and Backup
+name: Build React App
 
 on:
   push:
@@ -7,36 +7,19 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          dotnet-version: '8.0.x'
+          node-version: 20
 
-      - name: Restore Packages
-        run: dotnet restore
+      - name: Install Dependencies
+        run: npm install
 
       - name: Build Project
-        run: dotnet build --configuration Release --no-restore
-
-      - name: Publish Project
-        run: dotnet publish --configuration Release --output ./publish --no-build
-
-      - name: Backup Published Files
-        uses: actions/upload-artifact@v4
-        with:
-          name: Published-App
-          path: ./publish
-
-      # Example Deployment
-      # Azure App Service
-      # Hostinger VPS
-      # FTP
-      # SSH
+        run: npm run build
