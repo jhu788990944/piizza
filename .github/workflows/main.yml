@@ -1,0 +1,23 @@
+name: Deploy HTML Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: echo "HTML/CSS project - No build required"
+
+      - name: Publish
+        uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: .
